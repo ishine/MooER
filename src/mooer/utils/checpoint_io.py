@@ -29,6 +29,6 @@ def save_model_checkpoint_deepspeed(model_engine, cfg, checkpoint_name="checkpoi
         for key in ckpt_dict.keys():
             if 'llm' not in key:
                 ckpt_dict_new[key] = ckpt_dict[key].to('cpu').clone()
-            torch.save(ckpt_dict_new, os.path.join(save_dir_merge, 'adapter_project.pt'))
+        torch.save(ckpt_dict_new, os.path.join(save_dir_merge, 'adapter_project.pt'))
         logging.info(f"Save finished... {os.path.join(save_dir_merge, 'adapter_project.pt')}")
     
